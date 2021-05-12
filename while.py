@@ -19,18 +19,18 @@ print("The oven is ready!")
 
 def total_and_average():
     numbers = []
-    number = ""
-    total = ""
-    while number != "q":
+    while True:
         number = input("Pick a number: ")
-        numbers.append(number)
-        total += number
-    print("Numbers: ")
-    for number in numbers:
-        print(number)
-    print("Sum: " + total)
-    print("Average: " + int(total) / len(numbers))
-                   
+        if number == "q":
+            break
+        try:
+            numbers.append(int(number))
+        except ValueError:
+            continue
+    print("Numbers: ", numbers)
+    print("Sum: ", sum(numbers))
+    print("Average: ", sum(numbers)/len(numbers))
+        
     # Solution 2 here
 
 total_and_average()
@@ -40,7 +40,12 @@ total_and_average()
 # If the new number is divisible by 3, 5, or both,
 # print out the number. Otherwise, skip it.
 # Break out of the loop when current is equal to 101.
-
+#
 current = 1
+
+while current != 101:
+    if current % 3 == 0 or current % 5 == 0:
+        print(current)
+    current += 1
 
 # Solution 3 here
